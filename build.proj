@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="BuildProjects">
+
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)'=='' ">11.0</VisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)'=='' ">Release</Configuration>
+    <OutputRoot Condition=" '$(OutputRoot)'=='' ">$(MSBuildThisFileDirectory)build\outputroot\</OutputRoot>
+    <PublishFolder Condition=" '$(PublishFolder)'==''">$(MSBuildThisFileDirectory)build\publish\</PublishFolder>    
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectsToBuild Include="$(MSBuildThisFileDirectory)src\WebApplication1\WebApplication1.csproj">
+      <AdditionalProperties>
+        VisualStudioVersion=$(VisualStudioVersion);
+        Configuration=$(Configuration);
+        OutputPath=$(OutputRoot);
+        WebPublishMethod=FileSystem;
+        publishUrl=$(PublishFolder)WebApplication1\;
+        DeployOnBuild=true;
+        DeployTarget=WebPublish;
+        PublishProfile=$(MSBuildThisFileFullPath)
+      </AdditionalProperties>
+    </ProjectsToBuild>
+  </ItemGroup>
+  
+  <Target Name="BuildProjects">
+    <MSBuild Projects="@(ProjectsToBuild)" />
+  </Target>
+
+</Project>
