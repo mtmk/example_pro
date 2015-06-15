@@ -14,6 +14,10 @@ service 'w3svc' do
   action [:enable, :start]
 end
 
-template 'c:\inetpub\wwwroot\Default.htm' do
-  source 'index.html.erb'
+#template 'c:\inetpub\wwwroot\Default.htm' do
+#  source 'index.html.erb'
+#end
+
+file 'c:\inetpub\wwwroot\Default.htm' do
+  content '<h1>Yes Chef!</h1>'
 end
