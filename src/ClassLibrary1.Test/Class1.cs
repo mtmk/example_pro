@@ -17,8 +17,8 @@ namespace ClassLibrary1.Test
         [Test]
         public void T()
         {
-            IWebDriver driver = new PhantomJSDriver();
-            //IWebDriver driver = new FirefoxDriver();
+            //IWebDriver driver = new PhantomJSDriver();
+            IWebDriver driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("http://google.com/");
             Console.WriteLine(driver.Title);
             driver.Quit();
